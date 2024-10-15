@@ -12,6 +12,9 @@ import com.example.registrocoches.Model.Persona
 import com.example.registrocoches.Repository.CocheRepository
 import com.example.registrocoches.Repository.PersonaRepository
 import kotlinx.coroutines.launch
+import android.widget.Toast
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun PersonaScreen(
@@ -28,6 +31,7 @@ fun PersonaScreen(
     var caballos by remember { mutableStateOf("") }
 
     val coroutineScope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier.fillMaxSize().padding(16.dp),
@@ -90,10 +94,10 @@ fun PersonaScreen(
 
                 // Guardar Coche
                 val coche = Coche(matricula = matricula, marca = marca, caballos = caballos.toInt(), persona_id = personaId)
-                val cocheId = cocheRepository.insert(coche) // Aquí ahora obtenemos el ID del coche insertado
+                cocheRepository.insert(coche) // Aquí ahora obtenemos el ID del coche insertado
 
-                // Navegar a CocheScreen o a otra pantalla si es necesario
-                navController.navigate("coche_screen")
+                // Mostrar un mensaje de confirmación
+                Toast.makeText(context, "Datos guardados con éxito", Toast.LENGTH_SHORT).show()
             }
         }) {
             Text(text = "Guardar")
