@@ -20,5 +20,5 @@ data class Coche(
     val matricula: String,
     val marca: String,
     val caballos: Int,
-    val persona_id: Int
+    val persona_id: Long
 )

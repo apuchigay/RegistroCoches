@@ -12,12 +12,12 @@ import com.example.registrocoches.Model.Coche
 interface CocheDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(coche: Coche)
+    suspend fun insert(coche: Coche): Long // Cambiado para devolver el ID
 
     @Query("SELECT * FROM coches WHERE persona_id = :personaId")
     suspend fun getCochesByPersonaId(personaId: Int): List<Coche>
 
-    @Query("SELECT * FROM coches")  // Añadido: consulta para obtener todos los coches
+    @Query("SELECT * FROM coches")
     suspend fun getAllCoches(): List<Coche>
 
     @Update
