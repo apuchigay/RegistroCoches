@@ -11,11 +11,11 @@ import com.example.registrocoches.Repository.PersonaRepository
 fun Navigation(personaRepository: PersonaRepository, cocheRepository: CocheRepository) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "persona_screen") {
-        composable("persona_screen") {
-            PersonaScreen(navController, personaRepository, cocheRepository)
+    NavHost(navController = navController, startDestination = "main_screen") {
+        composable("main_screen") {
+            MainScreen(navController, personaRepository, cocheRepository)
         }
-        composable("coche_screen") {
+        composable("list_screen") {
             ListScreen(navController, cocheRepository, personaRepository) // Asegúrate de pasar personaRepository
         }
     }

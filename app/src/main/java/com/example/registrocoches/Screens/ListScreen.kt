@@ -34,8 +34,8 @@ fun ListScreen(
             TopAppBar(
                 title = { Text("Listado de Coches") },
                 actions = {
-                    IconButton(onClick = { navController.navigate("main_screen") }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Volver")
+                    Button(onClick = { navController.navigate("main_screen") }) {
+                        Text(text = "Volver")
                     }
                 }
             )
@@ -57,6 +57,7 @@ fun ListScreen(
             }
         }
     }
+
 }
 
 

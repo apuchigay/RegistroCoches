@@ -17,7 +17,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
-fun PersonaScreen(
+fun MainScreen(
     navController: NavController,
     personaRepository: PersonaRepository,
     cocheRepository: CocheRepository
@@ -104,7 +104,7 @@ fun PersonaScreen(
         }
 
         // Botón de navegación
-        Button(onClick = { navController.navigate("coche_screen") }) {
+        Button(onClick = { navController.navigate("list_screen") }) {
             Text(text = "Ir al listado de datos")
         }
     }
